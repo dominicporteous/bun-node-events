@@ -1,0 +1,17 @@
+#/usr/bin/env bash
+
+echo -e "\nRunning file..."
+echo -e "\n===============================\n\n"
+cat event.throws.js
+echo -e "\n\n===============================\n\n"
+
+echo "NODE_VERSION=$(node -v)"
+echo "BUN_VERISON=$(bun -v)"
+
+echo -e "\n\n"
+
+BUN_EXIT="$(bun event.throws.js 1> /dev/null; echo "$?")"
+NODE_EXIT="$(node event.throws.js 1> /dev/null; echo "$?")"
+
+echo "BUN_EXIT=$BUN_EXIT"
+echo "NODE_EXIT=$NODE_EXIT"
